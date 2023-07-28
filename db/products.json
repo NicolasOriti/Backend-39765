@@ -1,0 +1,101 @@
+[
+  {
+    "id": 0,
+    "title": "Producto 1",
+    "description": "Descripción del producto 1",
+    "price": 10.99,
+    "thumbnail": "https://www.example.com/product1.jpg",
+    "code": "PRD001",
+    "stock": 50
+  },
+  {
+    "id": 1,
+    "title": "Producto 2",
+    "description": "Descripción del producto 2",
+    "price": 29.99,
+    "thumbnail": "https://www.example.com/product2.jpg",
+    "code": "PRD002",
+    "stock": 25
+  },
+  {
+    "id": 2,
+    "title": "Producto 3",
+    "description": "Descripción del producto 3",
+    "price": 5.49,
+    "thumbnail": "https://www.example.com/product3.jpg",
+    "code": "PRD003",
+    "stock": 100
+  },
+  {
+    "id": 3,
+    "title": "Producto 4",
+    "description": "Descripción del producto 4",
+    "price": 15.99,
+    "thumbnail": "https://www.example.com/product4.jpg",
+    "code": "PRD004",
+    "stock": 75
+  },
+  {
+    "id": 4,
+    "title": "Producto 5",
+    "description": "Descripción del producto 5",
+    "price": 7.99,
+    "thumbnail": "https://www.example.com/product5.jpg",
+    "code": "PRD005",
+    "stock": 200
+  },
+  {
+    "id": 5,
+    "title": "Producto 6",
+    "description": "Descripción del producto 6",
+    "price": 12.49,
+    "thumbnail": "https://www.example.com/product6.jpg",
+    "code": "PRD006",
+    "stock": 50
+  },
+  {
+    "id": 6,
+    "title": "Producto 7",
+    "description": "Descripción del producto 7",
+    "price": 8.99,
+    "thumbnail": "https://www.example.com/product7.jpg",
+    "code": "PRD007",
+    "stock": 150
+  },
+  {
+    "id": 7,
+    "title": "Producto 8",
+    "description": "Descripción del producto 8",
+    "price": 25.99,
+    "thumbnail": "https://www.example.com/product8.jpg",
+    "code": "PRD008",
+    "stock": 100
+  },
+  {
+    "id": 8,
+    "title": "Producto 9",
+    "description": "Descripción del producto 9",
+    "price": 3.99,
+    "thumbnail": "https://www.example.com/product9.jpg",
+    "code": "PRD009",
+    "stock": 50
+  },
+  {
+    "id": 9,
+    "title": "Producto 10",
+    "description": "Descripción del producto 10",
+    "price": 19.99,
+    "thumbnail": "https://www.example.com/product10.jpg",
+    "code": "PRD010",
+    "stock": 25
+  },
+  {
+    "id": 10,
+    "title": "Producto 11",
+    "description": "Descripción del producto 11",
+    "price": 13.49,
+    "thumbnail": "https://www.example.com/product11.jpg",
+    "code": "PRD011",
+    "stock": 75
+  }
+]
