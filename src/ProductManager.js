@@ -1,4 +1,5 @@
-const { promises: fs } = require('fs');
+// const { promises: fs } = require('fs');
+import { promises as fs } from 'fs';
 
 class ProductManager {
   constructor(path) {
@@ -24,6 +25,7 @@ class ProductManager {
       return product;
     } catch (error) {
       console.error(error);
+      return null;
     }
   }
 
@@ -60,10 +62,17 @@ class ProductManager {
   async updateProduct(id, updatedFields) {
     try {
       const products = await this.getProducts();
+
       const index = products.findIndex((prod) => prod.id === id);
       if (index === -1) {
         throw new Error('Not found');
       }
+
+      products.forEach((prod) => {
+        if (prod.code === updatedFields.code) {
+          throw new Error('El codigo ya existe');
+        }
+      });
 
       const productToUpdate = { ...products[index], ...updatedFields };
 
@@ -96,30 +105,4 @@ class ProductManager {
   }
 }
 
-const test = async () => {
-  const productManager1 = new ProductManager('./productos.json');
-  console.log('Deberia devolver un arreglo vacio:', await productManager1.getProducts());
-  await productManager1.addProduct({
-    title: 'producto prueba',
-    description: 'Este es un producto prueba',
-    price: 200,
-    thumbnail: 'Sin imagen',
-    code: 'abc123',
-    stock: 25,
-  });
-  console.log('Ahora con un producto', await productManager1.getProducts());
-  console.log(await productManager1.getProductById(3));
-  console.log(
-    'Este deberia devolver el producto con id 0: ',
-    await productManager1.getProductById(0)
-  );
-  await productManager1.updateProduct(0, { title: 'Nuevo titulo de prueba' });
-  console.log(
-    'Este deberia devolver el producto con id 0 y el titulo actualizado: ',
-    await productManager1.getProductById(0)
-  );
-  await productManager1.deleteProduct(0);
-  console.log('Este deberia devolver un arreglo vacio:', await productManager1.getProducts());
-};
-
-test();
+export default ProductManager;
