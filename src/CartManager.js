@@ -1,69 +1,57 @@
 // const { promises: fs } = require('fs');
 import { promises as fs } from 'fs';
 
-class ProductManager {
+class CartManager {
   constructor(path) {
     this.path = path;
   }
 
-  async getProducts() {
+  async getCarts() {
     try {
-      const products = await fs.readFile(this.path, 'utf-8');
-      return JSON.parse(products);
+      const carts = await fs.readFile(this.path, 'utf-8');
+      return JSON.parse(carts);
     } catch (error) {
       return [];
     }
   }
 
-  async getProductById(id) {
+  async getCartById(id) {
     try {
-      const products = await this.getProducts();
-      let product = products.find((prod) => prod.id === id);
-      if (!product) {
+      const carts = await this.getCarts();
+      let cart = carts.find((cart) => cart.id === id);
+      if (!cart) {
         throw new Error('Not found');
       }
-      return product;
+      return cart;
     } catch (error) {
       console.error(error);
       return null;
     }
   }
 
-  async addProduct({ title, description, price, thumbnails, code, stock, status, category }) {
+  async createCart() {
     try {
-      const products = await this.getProducts();
-      products.forEach((prod) => {
-        if (prod.code === code) {
-          throw new Error('El codigo ya existe');
-        }
-      });
+      const carts = await this.getCarts();
 
-      const product = {
-        title,
-        description,
-        price,
-        code,
-        stock,
-        status,
-        category,
-        thumbnails,
+      const newCart = {
+        id: 0,
+        products: [],
       };
 
-      product.id = 0;
-      if (products.length > 0) {
-        product.id = products[products.length - 1].id + 1;
+      if (carts.length > 0) {
+        newCart.id = carts[carts.length - 1].id + 1;
       }
 
-      products.push(product);
-      await fs.writeFile(this.path, JSON.stringify(products, null, 2));
-      return product;
+      carts.push(newCart);
+      await fs.writeFile(this.path, JSON.stringify(carts, null, 2));
+      return newCart;
     } catch (error) {
       console.error(error);
       return null;
     }
   }
 
-  async updateProduct(id, updatedFields) {
+  async updateCart(id, updatedFields) {
     try {
       const products = await this.getProducts();
 
@@ -91,7 +79,7 @@ class ProductManager {
     }
   }
 
-  async deleteProduct(id) {
+  async deleteCart(id) {
     try {
       const products = await this.getProducts();
       const index = products.findIndex((prod) => prod.id === id);
@@ -112,4 +100,4 @@ class ProductManager {
   }
 }
 
-export default ProductManager;
+export default CartManager;

@@ -97,5 +97,19 @@
     "thumbnail": "https://www.example.com/product11.jpg",
     "code": "PRD011",
     "stock": 75
+  },
+  {
+    "title": "Remerita loca",
+    "description": "Descripcion para el producto PRD222",
+    "price": 200,
+    "code": "PRD222",
+    "stock": 20,
+    "status": true,
+    "category": "Remeras",
+    "thumbnails": [
+      "1.jpg",
+      "2.jpg"
+    ],
+    "id": 11
   }
 ]
